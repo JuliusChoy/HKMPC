@@ -11,8 +11,8 @@ export default function PeoplePage() {
   return (
     <>
       <PageHero
-        title="The room around the teams."
-        lede="Workshops were led by practitioners. Judges scored the briefs and the pitches. The weekend was run by the Master of Governance and Policy Student Representatives."
+        title="People"
+        lede="Three workshop speakers, the judges named in the participants’ guide, and the MGP student reps who ran the weekend."
       />
       <div className="mx-auto max-w-6xl space-y-16 px-5 py-14">
         <section>
@@ -31,8 +31,8 @@ export default function PeoplePage() {
         <section>
           <h2 className="font-serif text-3xl text-navy">Judges</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">
-            The participants’ guide names these members of the panel. They read the briefs, then
-            scored the pitches and the questions.
+            Named in the participants’ guide. They read the briefs, then scored the pitches and the
+            questions.
           </p>
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             {judges.map((person) => (
