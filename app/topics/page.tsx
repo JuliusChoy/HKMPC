@@ -11,8 +11,8 @@ export default function TopicsPage() {
   return (
     <>
       <PageHero
-        title="What would make the public trust this policy enough for it to work?"
-        lede="Each topic is tied to a commitment in the 2026 Policy Address and Hong Kong’s First Five-Year Plan (2026 to 2030). Teams could go beyond the questions in the guide. This page is a short version of the background they were given."
+        title="The three topics"
+        lede="Each one follows the 2026 Policy Address and the First Five-Year Plan (2026–2030). The questions are starters. Teams could go further."
       />
       <div className="mx-auto max-w-6xl px-5 py-14">
         <ol className="space-y-16">

@@ -21,24 +21,24 @@ export default function HomePage() {
               {event.theme}
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-snug text-paper/90">
-              The inaugural {event.name}. {event.audience} wrote a brief to a Hong Kong Secretary
-              and pitched it.
+              Master’s students at HKU, in teams of 2–4. One policy brief on the 2026 Policy
+              Address, then a pitch to the panel.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-paper/80">
-              {event.dates}, {event.hours}, {event.venue}. The {event.year} edition has concluded.
+              {event.dates}, {event.hours}, {event.venue}.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/competition"
                 className="inline-flex min-h-11 items-center justify-center bg-paper px-5 py-3 text-sm font-semibold text-navy hover:bg-white"
               >
-                How the weekend worked
+                Schedule and rules
               </Link>
               <Link
                 href="/topics"
                 className="inline-flex min-h-11 items-center justify-center border border-paper/40 px-5 py-3 text-sm font-semibold text-paper hover:border-paper"
               >
-                The three topics
+                Topics
               </Link>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-12">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="font-serif text-3xl text-navy md:text-4xl">Three briefs. One theme.</h2>
+            <h2 className="font-serif text-3xl text-navy md:text-4xl">Topics</h2>
           </div>
           <Link href="/topics" className="hidden text-sm font-semibold text-green md:inline">
             Read the background
@@ -74,21 +74,19 @@ export default function HomePage() {
       <section className="border-y border-line bg-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
           <div>
-            <h2 className="font-serif text-3xl text-navy md:text-4xl">
-              Two afternoons, from a problem to a pitch.
-            </h2>
+            <h2 className="font-serif text-3xl text-navy md:text-4xl">Friday and Saturday</h2>
             <ul className="mt-6 space-y-4 text-base leading-relaxed">
-              <li>Learn directly from people who write and judge policy for a living.</li>
-              <li>Work with mentors while the brief is still being written.</li>
-              <li>Address one recommendation to a Hong Kong Secretary, tied to the 2026 Policy Address.</li>
+              <li>Friday 17:45: one-page problem statement.</li>
+              <li>Saturday 14:30: three-page brief, to the Secretary for that topic.</li>
+              <li>Saturday from 16:00: 5-minute pitch, then 2 minutes of questions.</li>
             </ul>
           </div>
           <div className="border border-line bg-white p-6">
             <h3 className="font-serif text-2xl text-navy">Prizes</h3>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed">
-              <li>First place: HK$1,000, shared among the team.</li>
-              <li>Second place: HK$500, shared among the team.</li>
-              <li>Every team received a certificate of participation.</li>
+              <li>First: HK$1,000, shared by the team.</li>
+              <li>Second: HK$500, shared by the team.</li>
+              <li>Certificate of participation for every team.</li>
             </ul>
           </div>
         </div>
@@ -96,13 +94,13 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-5 py-14">
         <h2 className="max-w-2xl font-serif text-3xl text-navy md:text-4xl">
-          Featuring policy workshops from practitioners.
+          Workshops
         </h2>
         <ul className="mt-8 grid gap-4 md:grid-cols-3">
           {[
-            ["Priscilla Gatonye", "UNESCO-UNEVOC", "Writing a brief a Secretary can use"],
-            ["Mika Noh", "AI Culture Lab", "Stakeholders, cost and implementation"],
-            ["Calum Handforth", "UN Development Programme", "Pitching policy to decision makers"],
+            ["Priscilla Gatonye", "UNESCO-UNEVOC", "Workshop 1. Writing a policy brief"],
+            ["Mika Noh", "AI Culture Lab", "Workshop 2. Stakeholders, cost, implementation"],
+            ["Calum Handforth", "UN Development Programme", "Workshop 3. Pitching"],
           ].map(([name, org, session]) => (
             <li key={name} className="border-t-2 border-green pt-4">
               <h3 className="font-serif text-2xl text-navy">{name}</h3>
@@ -112,7 +110,7 @@ export default function HomePage() {
           ))}
         </ul>
         <Link href="/people" className="mt-8 inline-block text-sm font-semibold text-green">
-          Speakers, judges and the committee
+          Speakers, judges, committee
         </Link>
       </section>
     </>

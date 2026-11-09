@@ -28,7 +28,7 @@ export const topics = [
     title: "Trust in a Digital Age",
     secretary: "Secretary for Innovation, Technology and Industry",
     summary:
-      "Design policy that helps residents trust decisions made with the help of artificial intelligence.",
+      "AI in how Hong Kong is run, including the City Brain, and no dedicated AI law yet.",
     body: [
       "Hong Kong’s government is bringing artificial intelligence into how the city is run. The First Five-Year Plan commits to using AI to reform public administration, and to doing it in a safe and orderly way. The flagship is an AI City Brain: a system for real-time data sharing and analysis across departments, aimed at city management, disaster response and public safety.",
       "Beyond the City Brain, AI is expected to spread into finance, healthcare, law, transport and social welfare. The government has set aside HK$300 million for an AI for Welfare Lab. Faster services also mean more decisions about residents will be shaped by data and algorithms.",
@@ -45,7 +45,7 @@ export const topics = [
     title: "Trust in Skills for a Changing Workforce",
     secretary: "Secretary for Education",
     summary:
-      "Design policy that makes applied and vocational pathways a trusted career choice.",
+      "Applied and vocational routes, and whether students, parents and employers trust them.",
     body: [
       "Hong Kong needs more skilled technical workers, from construction and smart manufacturing to innovation and technology. Many students and parents still treat vocational and professional education as second to a traditional university degree. The 2026 Policy Address makes changing that an explicit goal.",
       "Hong Kong Metropolitan University became the first university of applied sciences in 2024, followed by Saint Francis University. With Tung Wah College and THEi, they formed the Alliance of Universities of Applied Sciences in November 2024. The First Five-Year Plan commits to more applied degree programmes and a platform that links industry and education.",
@@ -62,7 +62,7 @@ export const topics = [
     title: "Trust in a Fair Green Transition",
     secretary: "Secretary for Environment and Ecology",
     summary:
-      "Design policy that helps the people who drive taxis and minibuses trust that switching to electric is worth it.",
+      "Electric taxis and minibuses, and whether the people who drive them think the switch is worth it.",
     body: [
       "Road transport is about a fifth of Hong Kong’s carbon emissions. Public buses and taxis alone emit about 1.4 million tonnes a year, around 4 percent of the city’s total. Taxis and minibuses are also how millions of residents move through the day.",
       "The Green Transformation Roadmap of Public Buses and Taxis, published in December 2024, aims for about 3,000 electric taxis and 700 electric buses by the end of 2027, and for fossil-fuel vehicles to leave these fleets by 2050. The government is offering HK$45,000 per vehicle to replace 3,000 of the oldest taxis, covering roughly 10 to 25 percent of the cost, and plans at least 500 new fast-charging ports by 2027.",

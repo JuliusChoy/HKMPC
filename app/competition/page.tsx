@@ -27,12 +27,12 @@ export default function CompetitionPage() {
   return (
     <>
       <PageHero
-        title="Write the brief. Then defend it."
-        lede="Teams of two to four chose one topic, named a single recommendation, and pitched it to the panel. Solo registrants were matched at the start of Friday."
+        title="Teams of 2–4"
+        lede="One topic, one recommendation, five minutes with the judges. Came solo? You were paired on Friday morning."
       />
       <div className="mx-auto max-w-6xl space-y-16 px-5 py-14">
         <section>
-          <h2 className="font-serif text-3xl text-navy">What each team submitted</h2>
+          <h2 className="font-serif text-3xl text-navy">What teams handed in</h2>
           <div className="mt-6 overflow-x-auto border border-line">
             <table className="w-full min-w-[40rem] text-left text-sm">
               <caption className="sr-only">Deliverables and deadlines</caption>
@@ -57,18 +57,16 @@ export default function CompetitionPage() {
             </table>
           </div>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/75">
-            A brief names one recommendation, who delivers it, what it costs, and how success is
-            measured. Suggested structure: purpose, background, considerations, options,
-            recommendation, next steps, references. Submissions went as PDF to hkmpc.hku@gmail.com.
-            Only the first submission counted.
+            One recommendation: who does it, what it costs, how you know it worked. Suggested
+            structure: purpose, background, considerations, options, recommendation, next steps,
+            references. PDF to hkmpc.hku@gmail.com. First email only. Late work was not accepted.
           </p>
         </section>
 
         <section>
-          <h2 className="font-serif text-3xl text-navy">How the briefs were scored</h2>
+          <h2 className="font-serif text-3xl text-navy">Scoring</h2>
           <p className="mt-3 max-w-2xl text-ink/75">
-            Judges read the briefs during the Saturday pitching workshop, then scored the pitch and
-            the questions. One hundred points in total.
+            Judges read the briefs on Saturday, then scored the pitch and the questions. 100 points.
           </p>
           <ul className="mt-6 divide-y divide-line border-y border-line">
             {criteria.map((item) => (
