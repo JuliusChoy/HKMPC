@@ -11,7 +11,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        kicker="Contact"
         title="Write to the organising team."
         lede="The 2026 weekend has finished. Questions about certificates, prizes and the next edition still go to the same address."
       />
@@ -29,8 +28,8 @@ export default function ContactPage() {
         <section className="border border-line p-8 md:col-span-2">
           <h2 className="font-serif text-2xl text-navy">Where it was</h2>
           <p className="mt-3 text-base leading-relaxed">
-            {event.venue}. {event.dates}, {event.hours}. In person. Registration for this edition
-            closed on 4 November 2026 at 23:59.
+            {event.venue}. {event.dates}, {event.hours}. In person. Registration closed on 5
+            November 2026 at 20:00, after the deadline was extended.
           </p>
         </section>
       </div>
