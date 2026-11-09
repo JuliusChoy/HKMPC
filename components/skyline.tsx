@@ -8,17 +8,18 @@ export function Skyline() {
       strokeWidth="1.25"
       aria-hidden="true"
     >
-      <path d="M16 214h288" />
-      <path d="M28 214V150h22v64M40 150V128h8v22" />
-      <path d="M58 214V118h28v96M68 118V96h8v22" />
-      <path d="M96 214V86l16-28 16 28v128" />
-      <path d="M112 78V58" />
-      <path d="M136 214V132h18l10-16 10 16h18v82" />
-      <path d="M164 116V92" />
-      <path d="M198 214V104h34v110M210 104V78h10v26" />
-      <path d="M242 214V140h26v74M252 140V122h6v18" />
-      <path d="M276 214V162h22v52" />
-      <path d="M24 214c40 10 80 10 136 0 48-8 88-8 136 4" opacity="0.55" />
+      <path d="M12 214h296" />
+      <path d="M28 214V168h16v46" />
+      <path d="M52 214V146h18v68M58 146V128h6v18" />
+      <path d="M80 214V118l14-36 14 36v96" />
+      <path d="M94 82V62" />
+      <path d="M118 214V96h22v118M126 96V72h6v24" />
+      <path d="M150 214V70h16l8-22 8 22h16v144" />
+      <path d="M174 48V28" />
+      <path d="M206 214V124h28v90M216 124V102h8v22" />
+      <path d="M244 214V150h22v64" />
+      <path d="M274 214V176h18v38" />
+      <path d="M20 214c36 8 72 10 120 2 40-6 84-8 140 6" opacity="0.55" />
     </svg>
   );
 }

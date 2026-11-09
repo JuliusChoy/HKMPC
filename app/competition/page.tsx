@@ -27,7 +27,6 @@ export default function CompetitionPage() {
   return (
     <>
       <PageHero
-        kicker="Format"
         title="Write the brief. Then defend it."
         lede="Teams of two to four chose one topic, named a single recommendation, and pitched it to the panel. Solo registrants were matched at the start of Friday."
       />
