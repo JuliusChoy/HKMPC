@@ -11,16 +11,16 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-line bg-paper/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-line bg-paper">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo.png"
-            alt="HKMPC"
-            width={954}
-            height={668}
+            alt="Hong Kong Master Policy Competition"
+            width={609}
+            height={427}
             priority
-            className="h-12 w-auto"
+            className="h-14 w-auto"
           />
         </Link>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
@@ -42,7 +42,7 @@ export function SiteHeader() {
         </nav>
         <button
           type="button"
-          className="border border-navy/20 px-3 py-2 text-sm font-semibold text-navy md:hidden"
+          className="min-h-11 border border-navy/20 px-4 text-sm font-semibold text-navy md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}

@@ -11,7 +11,6 @@ export default function PeoplePage() {
   return (
     <>
       <PageHero
-        kicker="People"
         title="The room around the teams."
         lede="Workshops were led by practitioners. Judges scored the briefs and the pitches. The weekend was run by the Master of Governance and Policy Student Representatives."
       />
@@ -23,9 +22,7 @@ export default function PeoplePage() {
               <li key={person.name} className="border border-line bg-white p-6">
                 <h3 className="font-serif text-2xl text-navy">{person.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink/80">{person.role}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-green">
-                  {person.session}
-                </p>
+                <p className="mt-4 text-sm text-green">{person.session}</p>
               </li>
             ))}
           </ul>
@@ -34,12 +31,12 @@ export default function PeoplePage() {
         <section>
           <h2 className="font-serif text-3xl text-navy">Judges</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">
-            The participants’ guide also thanks these members of the panel. Portraits and a fuller
-            bench can be added in the next pass.
+            The participants’ guide names these members of the panel. They read the briefs, then
+            scored the pitches and the questions.
           </p>
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             {judges.map((person) => (
-              <li key={person.name} className="border-l-2 border-brown bg-white px-5 py-4">
+              <li key={person.name} className="border border-line bg-white px-5 py-4">
                 <h3 className="font-serif text-2xl text-navy">{person.name}</h3>
                 <p className="mt-1 text-sm text-ink/75">{person.role}</p>
               </li>
