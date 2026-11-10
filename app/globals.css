@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f5f0;
+  --paper-deep: #efebe3;
+  --ink: #1a1a18;
+  --muted: #4a4740;
+  --green: #1a4336;
+  --green-deep: #123028;
+  --copper: #9a6b3f;
+  --copper-soft: #c4a46a;
+  --line: #d4cdc0;
+  --rule: #1a4336;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-copper: var(--copper);
+  --color-copper-soft: var(--copper-soft);
+  --color-line: var(--line);
+  --color-rule: var(--rule);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-libre-baskerville);
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(154, 107, 63, 0.06), transparent 55%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Source Sans 3", sans-serif;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--paper);
+}
+
+html {
+  scrollbar-color: var(--green) var(--paper);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+@keyframes notice-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes soft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-notice {
+  animation: notice-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.motion-rule {
+  transform-origin: left center;
+  animation: rule-draw 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.motion-rise {
+  animation: soft-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-notice,
+  .motion-rule,
+  .motion-rise {
+    animation: none;
+  }
+}
