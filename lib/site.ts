@@ -137,31 +137,85 @@ export const saturday = [
   ["19:00", "Venue closes"],
 ] as const;
 
-export const workshops = [
+export type PersonProfile = {
+  name: string;
+  role: string;
+  image: string;
+  bio?: readonly string[];
+  session?: string;
+  focus?: readonly string[];
+};
+
+const peopleImages = {
+  ronaldYoung: "/people/ronald-young.png",
+  hidekiSuzuki: "/people/hideki-suzuki.png",
+  calumHandforth: "/people/calum-handforth.png",
+  priscillaGatonye: "/people/priscilla-gatonye.png",
+  mikaNoh: "/people/mika-noh.png",
+} as const;
+
+/** Shared judge + workshop lead — one image asset for both sections. */
+export const calumHandforth = {
+  name: "Calum Handforth",
+  role: "AI Governance Expert, UN Development Programme",
+  image: peopleImages.calumHandforth,
+  bio: [
+    "Calum’s work spans the implementation of foundational digital and data infrastructure to supporting governments in exploring emerging technologies. He has provided technical, strategic, and policy advice at the highest levels of government, including to heads of state, prime ministers, ministers responsible for digital portfolios, and senior civil servants, while also engaging closely with private-sector C-suite leaders.",
+    "Appointed by the Mayor of London as a London sustainable development commissioner, Calum also serves as co-chair of the World Economic Forum’s G20 Smart Cities Digital Infrastructure Taskforce.",
+  ],
+} as const satisfies PersonProfile;
+
+export const judges: readonly PersonProfile[] = [
+  {
+    name: "Ronald Young",
+    role: "Head of Sustainable Banking Development, Hong Kong Monetary Authority",
+    image: peopleImages.ronaldYoung,
+    bio: [
+      "As a seasoned financial professional with over 25 years of experience in international banking, finance and investment, Ronald focuses on sustainable and transition finance, as well as transactions in the energy, infrastructure and natural resources sectors.",
+      "At HKMA, Ronald is responsible for the development and implementation of policies, standards, guidelines and tools to promote sustainable capital flows and facilitate the banking sector’s management of climate related risks.",
+    ],
+  },
+  {
+    name: "Hideki Suzuki",
+    role: "Senior Director of Sustainable Investment, Sustainable Investment Team, Public Markets, Manulife Investment Management",
+    image: peopleImages.hidekiSuzuki,
+    bio: [
+      "At Manulife, Hideki is responsible for leading and implementing environmental, social, and governance (ESG) data and methodology development projects that support and advance the firm’s ESG integration and product development goals. He also works with investment teams in Asia and Europe to identify and assess ESG risks and opportunities for research and engagement processes.",
+      "Prior to joining the firm, Hideki was a senior corporate governance data analyst at Bloomberg LP in New York, developing governance data analytics.",
+    ],
+  },
+  calumHandforth,
+];
+
+export const workshops: readonly PersonProfile[] = [
   {
     name: "Priscilla Gatonye",
-    role: "Programme Officer, UNESCO-UNEVOC",
+    role: "Programme Officer, UNESCO-UNEVOC International Centre for TVET",
+    image: peopleImages.priscillaGatonye,
     session: "Workshop 1 · Writing a policy brief for a Secretary",
+    focus: [
+      "Tips on writing an effective policy brief",
+      "Inclusive, gender-responsive policies",
+    ],
   },
   {
     name: "Mika Noh",
     role: "Founder and Executive Director, AI Culture Lab",
+    image: peopleImages.mikaNoh,
     session: "Workshop 2 · Stakeholders, feasibility and implementation",
+    focus: [
+      "How to transition from ethical principles to policy feasibility",
+      "Training Data Justice framework and insights from Curating Intelligence",
+    ],
   },
   {
-    name: "Calum Handforth",
-    role: "AI Governance Expert, UN Development Programme",
+    name: calumHandforth.name,
+    role: calumHandforth.role,
+    image: calumHandforth.image,
     session: "Workshop 3 · Pitching policy to decision makers",
+    focus: [
+      "How to pitch policy to decision makers",
+      "How technology influences collaboration and conflict",
+    ],
   },
-] as const;
-
-export const judges = [
-  {
-    name: "Ronald Young",
-    role: "Head of Sustainable Banking Development, Hong Kong Monetary Authority",
-  },
-  {
-    name: "Hideki Suzuki",
-    role: "Senior Director of Sustainable Investment, Manulife Investment Management",
-  },
-] as const;
+];

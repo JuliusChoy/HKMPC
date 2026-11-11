@@ -1,47 +1,96 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
-import { event, judges, workshops } from "@/lib/site";
+import { event, judges, workshops, type PersonProfile } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "People",
-  description: "Workshop speakers, judges and the HKMPC 2026 organising committee.",
+  description:
+    "Judging panel, workshop leads and the HKMPC 2026 organising committee.",
 };
+
+function JudgePanel({ person }: { person: PersonProfile }) {
+  return (
+    <li className="grid grid-rows-[auto_auto_1fr] border-b border-line py-8 last:border-b-0 md:row-span-3 md:grid-rows-subgrid md:border-b-0 md:border-l md:border-line md:px-6 md:py-10 md:first:border-l-0 md:first:pl-0 md:last:pr-0">
+      <div className="relative mx-auto aspect-[4/5] w-40 overflow-hidden bg-paper-deep md:mx-0 md:w-full md:max-w-[13rem]">
+        <Image
+          src={person.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 160px, 208px"
+          className="object-cover object-top"
+        />
+      </div>
+      <div className="mt-5 min-h-[8.5rem]">
+        <h3 className="font-serif text-2xl text-ink">{person.name}</h3>
+        <p className="mt-2 text-sm font-bold leading-relaxed text-muted">{person.role}</p>
+      </div>
+      <div className="mt-4 space-y-4">
+        {person.bio?.map((paragraph, index) => (
+          <p key={index} className="text-sm leading-relaxed text-ink">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </li>
+  );
+}
+
+function PersonRow({ person }: { person: PersonProfile }) {
+  return (
+    <li className="grid gap-5 border-b border-line py-8 first:border-t md:grid-cols-[12rem_1fr] md:gap-10 md:py-10">
+      <div className="relative aspect-[4/5] w-40 overflow-hidden bg-paper-deep md:w-44">
+        <Image
+          src={person.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 160px, 176px"
+          className="object-cover object-top"
+        />
+      </div>
+      <div className="min-w-0 self-center">
+        <h3 className="font-serif text-2xl text-ink md:text-3xl">{person.name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted">{person.role}</p>
+        {person.session ? (
+          <p className="mt-2 text-sm text-green md:text-base">{person.session}</p>
+        ) : null}
+        {person.focus ? (
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink md:text-base">
+            {person.focus.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </li>
+  );
+}
 
 export default function PeoplePage() {
   return (
     <>
       <PageHero
-        title="Speakers, judges, and the organising committee."
-        lede="Workshops are led by practitioners. Judges score the briefs and the pitches. The weekend is run by the Master of Governance and Policy Student Representatives."
+        title="Judges, workshop leads, and the organising committee."
+        lede="The panel who scored the briefs and pitches. Workshops are led by practitioners. The weekend is run by the Master of Governance and Policy Student Representatives."
       />
       <div className="mx-auto max-w-5xl space-y-16 px-5 py-14">
         <section>
-          <h2 className="font-serif text-3xl text-green">Workshop speakers</h2>
-          <ul className="mt-6 divide-y divide-line border-y border-line">
-            {workshops.map((person) => (
-              <li key={person.name} className="grid gap-2 py-5 md:grid-cols-[14rem_1fr] md:gap-8">
-                <div>
-                  <h3 className="font-serif text-2xl text-ink">{person.name}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{person.role}</p>
-                </div>
-                <p className="self-center text-sm text-green md:text-base">{person.session}</p>
-              </li>
+          <h2 className="font-serif text-3xl text-green">Judging panel</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            The panel read the briefs, then scored the pitches and the questions.
+          </p>
+          <ul className="mt-8 grid border-y border-line md:grid-cols-3 md:grid-rows-[auto_auto_1fr]">
+            {judges.map((person) => (
+              <JudgePanel key={`judge-${person.name}`} person={person} />
             ))}
           </ul>
         </section>
 
         <section>
-          <h2 className="font-serif text-3xl text-green">Judges</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-            The participants’ guide names these members of the panel. They read the briefs, then
-            score the pitches and the questions.
-          </p>
-          <ul className="mt-6 divide-y divide-line border-y border-line">
-            {judges.map((person) => (
-              <li key={person.name} className="py-5">
-                <h3 className="font-serif text-2xl text-ink">{person.name}</h3>
-                <p className="mt-1 text-sm text-muted">{person.role}</p>
-              </li>
+          <h2 className="font-serif text-3xl text-green">Workshop leads</h2>
+          <ul className="mt-6">
+            {workshops.map((person) => (
+              <PersonRow key={`workshop-${person.name}`} person={person} />
             ))}
           </ul>
         </section>
