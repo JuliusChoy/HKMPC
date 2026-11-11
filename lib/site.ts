@@ -193,9 +193,9 @@ export const workshops: readonly PersonProfile[] = [
     role: "Programme Officer, UNESCO-UNEVOC International Centre for TVET",
     image: peopleImages.priscillaGatonye,
     session: "Workshop 1 · Writing a policy brief for a Secretary",
-    bio: [
-      "As a programme officer at the UNESCO-UNEVOC International Center for TVET, Priscilla manages global thematic programming across a network of over 250 centers worldwide. With a focus on youth empowerment, gender equality, and social inclusion, she oversees institutional leadership initiatives, youth entrepreneurship campaigns, and serves as the organization’s strategic focal point for Africa, gender, and youth.",
-      "Prior to joining UNESCO-UNEVOC, Priscilla managed skills development and youth employability portfolios across East Africa.",
+    focus: [
+      "Tips on writing an effective policy brief",
+      "Inclusive, gender-responsive policies",
     ],
   },
   {
@@ -209,7 +209,13 @@ export const workshops: readonly PersonProfile[] = [
     ],
   },
   {
-    ...calumHandforth,
+    name: calumHandforth.name,
+    role: calumHandforth.role,
+    image: calumHandforth.image,
     session: "Workshop 3 · Pitching policy to decision makers",
+    focus: [
+      "How to pitch policy to decision makers",
+      "How technology influences collaboration and conflict",
+    ],
   },
 ];

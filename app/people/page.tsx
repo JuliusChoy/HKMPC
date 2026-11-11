@@ -9,6 +9,29 @@ export const metadata: Metadata = {
     "Judging panel, workshop leads and the HKMPC 2026 organising committee.",
 };
 
+function JudgePanel({ person }: { person: PersonProfile }) {
+  return (
+    <li className="border-b border-line py-8 last:border-b-0 md:border-b-0 md:border-l md:border-line md:px-6 md:py-10 md:first:border-l-0 md:first:pl-0 md:last:pr-0">
+      <div className="relative mx-auto aspect-[4/5] w-40 overflow-hidden bg-paper-deep md:mx-0 md:w-full md:max-w-[13rem]">
+        <Image
+          src={person.image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 160px, 208px"
+          className="object-cover object-top"
+        />
+      </div>
+      <h3 className="mt-5 font-serif text-2xl text-ink">{person.name}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{person.role}</p>
+      {person.bio?.map((paragraph, index) => (
+        <p key={index} className="mt-4 text-sm leading-relaxed text-ink">
+          {paragraph}
+        </p>
+      ))}
+    </li>
+  );
+}
+
 function PersonRow({ person }: { person: PersonProfile }) {
   return (
     <li className="grid gap-5 border-b border-line py-8 first:border-t md:grid-cols-[12rem_1fr] md:gap-10 md:py-10">
@@ -27,11 +50,6 @@ function PersonRow({ person }: { person: PersonProfile }) {
         {person.session ? (
           <p className="mt-2 text-sm text-green md:text-base">{person.session}</p>
         ) : null}
-        {person.bio?.map((paragraph, index) => (
-          <p key={index} className="mt-4 text-sm leading-relaxed text-ink md:text-base">
-            {paragraph}
-          </p>
-        ))}
         {person.focus ? (
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink md:text-base">
             {person.focus.map((item) => (
@@ -57,9 +75,9 @@ export default function PeoplePage() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
             The panel read the briefs, then scored the pitches and the questions.
           </p>
-          <ul className="mt-6">
+          <ul className="mt-8 grid border-y border-line md:grid-cols-3">
             {judges.map((person) => (
-              <PersonRow key={`judge-${person.name}`} person={person} />
+              <JudgePanel key={`judge-${person.name}`} person={person} />
             ))}
           </ul>
         </section>
