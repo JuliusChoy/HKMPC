@@ -18,11 +18,11 @@ export default function HomePage() {
           />
           <div className="w-full">
             <p className="font-serif text-sm tracking-[0.04em] text-copper">
-              {event.short} · {event.year}
+              {event.theme}
             </p>
             <div className="mt-3 h-px w-full bg-green motion-rule" aria-hidden="true" />
             <h1 className="mt-6 max-w-3xl text-balance font-serif text-3xl leading-[1.2] text-green md:text-5xl">
-              {event.theme}
+              Hong Kong Masters Policy Competition 2026
             </h1>
           </div>
         </div>
