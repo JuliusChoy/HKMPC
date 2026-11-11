@@ -32,16 +32,6 @@ export function SiteFooter() {
                 {event.email}
               </a>
             </li>
-            <li>
-              <a
-                className="underline-offset-4 hover:text-green hover:underline"
-                href={event.instagram}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {event.instagramHandle}
-              </a>
-            </li>
             <li className="text-muted">{event.venue}</li>
           </ul>
         </div>

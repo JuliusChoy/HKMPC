@@ -17,22 +17,18 @@ export default function HomePage() {
             className="h-20 w-auto md:h-24"
           />
           <div className="w-full">
-            <p className="font-serif text-sm tracking-[0.04em] text-copper">
-              {event.short} · {event.year}
-            </p>
-            <div className="mt-3 h-px w-full bg-green motion-rule" aria-hidden="true" />
-            <h1 className="mt-6 max-w-3xl text-balance font-serif text-3xl leading-[1.2] text-green md:text-5xl">
-              {event.theme}
+            <h1 className="max-w-3xl text-balance font-serif text-3xl leading-[1.2] text-green md:text-5xl">
+              Hong Kong Masters Policy Competition 2026
             </h1>
+            <div className="mt-4 h-px w-full bg-green motion-rule" aria-hidden="true" />
+            <p className="mt-6 max-w-3xl text-balance font-serif text-xl leading-snug text-copper md:text-2xl">
+              {event.theme}
+            </p>
           </div>
         </div>
 
-        <div className="motion-rise mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-ink md:text-lg">
+        <div className="motion-rise mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
           <p>
-            Notice is hereby given of the inaugural {event.name}. {event.audience} write a policy
-            brief to a Hong Kong Secretary and pitch it over two afternoons.
-          </p>
-          <p className="text-muted">
             <span className="font-semibold text-ink">{event.dates}</span>
             {", "}
             {event.hours}

@@ -5,7 +5,7 @@ import { event } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Email and Instagram for the Hong Kong Master Policy Competition.",
+  description: "Email for the Hong Kong Master Policy Competition.",
 };
 
 export default function ContactPage() {
@@ -21,31 +21,17 @@ export default function ContactPage() {
           <p className="text-sm text-muted">Signup uses a placeholder form URL for now.</p>
         </div>
 
-        <div className="grid gap-8 border-y border-line py-10 md:grid-cols-2">
-          <div>
-            <h2 className="font-serif text-2xl text-green">Email</h2>
-            <a
-              href={`mailto:${event.email}`}
-              className="mt-3 inline-block font-serif text-2xl text-ink underline-offset-4 hover:text-green hover:underline md:text-3xl"
-            >
-              {event.email}
-            </a>
-            <p className="mt-3 text-sm text-muted">
-              Announcements during the weekend also go out by email.
-            </p>
-          </div>
-          <div>
-            <h2 className="font-serif text-2xl text-green">Instagram</h2>
-            <a
-              href={event.instagram}
-              rel="noopener noreferrer"
-              target="_blank"
-              className="mt-3 inline-block font-serif text-2xl text-ink underline-offset-4 hover:text-green hover:underline md:text-3xl"
-            >
-              {event.instagramHandle}
-            </a>
-            <p className="mt-3 text-sm text-muted">Updates from the organising team.</p>
-          </div>
+        <div className="border-y border-line py-10">
+          <h2 className="font-serif text-2xl text-green">Email</h2>
+          <a
+            href={`mailto:${event.email}`}
+            className="mt-3 inline-block font-serif text-2xl text-ink underline-offset-4 hover:text-green hover:underline md:text-3xl"
+          >
+            {event.email}
+          </a>
+          <p className="mt-3 text-sm text-muted">
+            Announcements during the weekend also go out by email.
+          </p>
         </div>
 
         <section>
