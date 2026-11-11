@@ -17,13 +17,13 @@ export default function HomePage() {
             className="h-20 w-auto md:h-24"
           />
           <div className="w-full">
-            <p className="max-w-3xl text-balance font-serif text-xl leading-snug text-green md:text-2xl">
+            <h1 className="max-w-3xl text-balance font-serif text-3xl leading-[1.2] text-green md:text-5xl">
               Hong Kong Masters Policy Competition 2026
-            </p>
-            <div className="mt-4 h-px w-full bg-green motion-rule" aria-hidden="true" />
-            <h1 className="mt-6 max-w-3xl text-balance font-serif text-3xl leading-[1.2] text-green md:text-5xl">
-              {event.theme}
             </h1>
+            <div className="mt-4 h-px w-full bg-green motion-rule" aria-hidden="true" />
+            <p className="mt-6 max-w-3xl text-balance font-serif text-xl leading-snug text-copper md:text-2xl">
+              {event.theme}
+            </p>
           </div>
         </div>
 
