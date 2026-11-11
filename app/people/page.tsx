@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 function JudgePanel({ person }: { person: PersonProfile }) {
   return (
-    <li className="border-b border-line py-8 last:border-b-0 md:border-b-0 md:border-l md:border-line md:px-6 md:py-10 md:first:border-l-0 md:first:pl-0 md:last:pr-0">
+    <li className="grid grid-rows-[auto_auto_1fr] border-b border-line py-8 last:border-b-0 md:row-span-3 md:grid-rows-subgrid md:border-b-0 md:border-l md:border-line md:px-6 md:py-10 md:first:border-l-0 md:first:pl-0 md:last:pr-0">
       <div className="relative mx-auto aspect-[4/5] w-40 overflow-hidden bg-paper-deep md:mx-0 md:w-full md:max-w-[13rem]">
         <Image
           src={person.image}
@@ -21,13 +21,17 @@ function JudgePanel({ person }: { person: PersonProfile }) {
           className="object-cover object-top"
         />
       </div>
-      <h3 className="mt-5 font-serif text-2xl text-ink">{person.name}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted">{person.role}</p>
-      {person.bio?.map((paragraph, index) => (
-        <p key={index} className="mt-4 text-sm leading-relaxed text-ink">
-          {paragraph}
-        </p>
-      ))}
+      <div className="mt-5 min-h-[8.5rem]">
+        <h3 className="font-serif text-2xl text-ink">{person.name}</h3>
+        <p className="mt-2 text-sm font-bold leading-relaxed text-muted">{person.role}</p>
+      </div>
+      <div className="mt-4 space-y-4">
+        {person.bio?.map((paragraph, index) => (
+          <p key={index} className="text-sm leading-relaxed text-ink">
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </li>
   );
 }
@@ -75,7 +79,7 @@ export default function PeoplePage() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
             The panel read the briefs, then scored the pitches and the questions.
           </p>
-          <ul className="mt-8 grid border-y border-line md:grid-cols-3">
+          <ul className="mt-8 grid border-y border-line md:grid-cols-3 md:grid-rows-[auto_auto_1fr]">
             {judges.map((person) => (
               <JudgePanel key={`judge-${person.name}`} person={person} />
             ))}
