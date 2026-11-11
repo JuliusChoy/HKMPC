@@ -27,12 +27,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="motion-rise mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-ink md:text-lg">
+        <div className="motion-rise mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
           <p>
-            Notice is hereby given of the inaugural {event.name}. {event.audience} write a policy
-            brief to a Hong Kong Secretary and pitch it over two afternoons.
-          </p>
-          <p className="text-muted">
             <span className="font-semibold text-ink">{event.dates}</span>
             {", "}
             {event.hours}
