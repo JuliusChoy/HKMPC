@@ -220,23 +220,14 @@ export type JudgeQuoteSlide = {
   paragraphs: readonly string[];
 };
 
-/** Home first-viewport cycle: Hideki filled (two slides); Ronald & Calum empty. */
+/** Home first-viewport cycle: one Hideki slide (first + last paragraphs); Ronald & Calum empty. */
 export const judgeQuoteSlides: readonly JudgeQuoteSlide[] = [
   {
-    id: "hideki-1",
+    id: "hideki",
     name: "Hideki Suzuki",
     role: "Senior Director of Sustainable Investment, Manulife Investment Management",
     paragraphs: [
       "The competition provides valuable real-world experience in developing and pitching innovative solutions to public policy challenges.",
-      "This type of exercise lets students prioritize and think in terms of realistic budgetary constraints to compete for scarce funding.",
-    ],
-  },
-  {
-    id: "hideki-2",
-    name: "Hideki Suzuki",
-    role: "Senior Director of Sustainable Investment, Manulife Investment Management",
-    paragraphs: [
-      "The collaborative nature of the exercise also strengthens teamwork, relationship management, and stakeholder engagement skills, both within teams and with decision-makers.",
       "It is a valuable addition to the curriculum, preparing students for careers in government, policy consulting, think tanks, and international organizations.",
     ],
   },
