@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   judgeOrganisations,
   judgeQuoteSlides,
@@ -43,9 +43,14 @@ function QuoteAttribution({ slide }: { slide: JudgeQuoteSlide }) {
 
 export function JudgeVoices() {
   const labelId = useId();
+  const cycleRegionRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const [focusPaused, setFocusPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+
+  const paused = userPaused || hoverPaused || focusPaused;
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -65,13 +70,15 @@ export function JudgeVoices() {
 
   const active = judgeQuoteSlides[index] ?? judgeQuoteSlides[0];
 
+  function syncFocusPaused(nextTarget: EventTarget | null) {
+    const root = cycleRegionRef.current;
+    if (!root) return;
+    const next = nextTarget instanceof Node ? nextTarget : null;
+    setFocusPaused(Boolean(next && root.contains(next)));
+  }
+
   return (
-    <section
-      className="mt-12 border-t border-line pt-8"
-      aria-labelledby={labelId}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
+    <section className="mt-12 border-t border-line pt-8" aria-labelledby={labelId}>
       <h2 id={labelId} className="font-serif text-xl text-green md:text-2xl">
         Judging organisations
       </h2>
@@ -106,56 +113,71 @@ export function JudgeVoices() {
           </ul>
         ) : (
           <div
-            className="relative mt-6 min-h-[14rem] overflow-hidden"
-            aria-live="polite"
-            aria-atomic="true"
+            ref={cycleRegionRef}
+            className="mt-4"
+            onMouseEnter={() => setHoverPaused(true)}
+            onMouseLeave={() => setHoverPaused(false)}
+            onFocusCapture={() => setFocusPaused(true)}
+            onBlurCapture={(event) => syncFocusPaused(event.relatedTarget)}
           >
-            {judgeQuoteSlides.map((slide, i) => {
-              const isActive = i === index;
-              return (
-                <blockquote
+            <div className="flex flex-wrap items-center justify-end gap-3">
+              <button
+                type="button"
+                className="min-h-10 border border-line px-3 text-sm font-semibold text-green transition-colors hover:border-green hover:bg-paper-deep"
+                aria-pressed={userPaused}
+                onClick={() => setUserPaused((current) => !current)}
+              >
+                {userPaused ? "Resume quotes" : "Pause quotes"}
+              </button>
+            </div>
+
+            <div className="mt-4 grid" aria-live="polite" aria-atomic="true">
+              {judgeQuoteSlides.map((slide, i) => {
+                const isActive = i === index;
+                return (
+                  <blockquote
+                    key={slide.id}
+                    className={`col-start-1 row-start-1 quote-fade ${
+                      isActive ? "quote-fade-active" : "pointer-events-none"
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <QuoteBody slide={slide} />
+                    <QuoteAttribution slide={slide} />
+                  </blockquote>
+                );
+              })}
+            </div>
+
+            <div
+              className="mt-6 flex items-center gap-1"
+              role="tablist"
+              aria-label="Judge quotes"
+            >
+              {judgeQuoteSlides.map((slide, i) => (
+                <button
                   key={slide.id}
-                  className={`quote-fade ${isActive ? "quote-fade-active" : ""} ${
-                    isActive ? "relative" : "pointer-events-none absolute inset-0"
-                  }`}
-                  aria-hidden={!isActive}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === index}
+                  aria-label={`${slide.name}${slide.paragraphs.length === 0 ? " (quote coming soon)" : ""}`}
+                  className="flex h-8 w-8 items-center justify-center"
+                  onClick={() => setIndex(i)}
                 >
-                  <QuoteBody slide={slide} />
-                  <QuoteAttribution slide={slide} />
-                </blockquote>
-              );
-            })}
+                  <span
+                    className={`block h-2 w-2 rounded-none transition-colors ${
+                      i === index ? "bg-green" : "bg-line"
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
-        {!reducedMotion ? (
-          <div
-            className="mt-6 flex items-center gap-1"
-            role="tablist"
-            aria-label="Judge quotes"
-          >
-            {judgeQuoteSlides.map((slide, i) => (
-              <button
-                key={slide.id}
-                type="button"
-                role="tab"
-                aria-selected={i === index}
-                aria-label={`${slide.name}${slide.paragraphs.length === 0 ? " (quote coming soon)" : ""}`}
-                className="flex h-8 w-8 items-center justify-center"
-                onClick={() => setIndex(i)}
-              >
-                <span
-                  className={`block h-2 w-2 rounded-none transition-colors ${
-                    i === index ? "bg-green" : "bg-line"
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-            ))}
-          </div>
-        ) : null}
-
-        <p className="sr-only">
+        <p className="sr-only" aria-live="polite">
+          {paused ? "Quote rotation paused. " : ""}
           Showing {active.name}
           {active.paragraphs.length === 0 ? ", quote coming soon" : ""}.
         </p>
