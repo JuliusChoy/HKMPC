@@ -187,11 +187,29 @@ export const judges: readonly PersonProfile[] = [
   calumHandforth,
 ];
 
-/** Organisations that provided judges — text names only (no logos yet). */
+/** Organisations that provided judges — muted grey wordmarks/marks on Home. */
 export const judgeOrganisations = [
-  "Hong Kong Monetary Authority",
-  "Manulife Investment Management",
-  "UN Development Programme",
+  {
+    name: "Hong Kong Monetary Authority",
+    short: "HKMA",
+    logo: "/orgs/hkma.png",
+    width: 660,
+    height: 94,
+  },
+  {
+    name: "Manulife Investment Management",
+    short: "Manulife",
+    logo: "/orgs/manulife-investment-management.png",
+    width: 1005,
+    height: 68,
+  },
+  {
+    name: "UN Development Programme",
+    short: "UNDP",
+    logo: "/orgs/undp.png",
+    width: 238,
+    height: 483,
+  },
 ] as const;
 
 export type JudgeQuoteSlide = {

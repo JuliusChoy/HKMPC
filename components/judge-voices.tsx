@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import {
   judgeOrganisations,
@@ -7,7 +8,7 @@ import {
   type JudgeQuoteSlide,
 } from "@/lib/site";
 
-const CYCLE_MS = 7000;
+const CYCLE_MS = 5000;
 
 function QuoteBody({ slide }: { slide: JudgeQuoteSlide }) {
   if (slide.paragraphs.length === 0) {
@@ -82,15 +83,20 @@ export function JudgeVoices() {
       <h2 id={labelId} className="font-serif text-xl text-green md:text-2xl">
         Judging organisations
       </h2>
-      <ul className="mt-4 flex flex-col gap-2 text-sm leading-relaxed text-muted md:flex-row md:flex-wrap md:items-baseline md:gap-x-0 md:gap-y-2 md:text-base">
-        {judgeOrganisations.map((name, i) => (
-          <li key={name} className="md:inline">
-            <span className="text-ink">{name}</span>
-            {i < judgeOrganisations.length - 1 ? (
-              <span className="hidden text-line md:inline" aria-hidden="true">
-                {" · "}
-              </span>
-            ) : null}
+      <ul className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-6 md:gap-x-12">
+        {judgeOrganisations.map((org) => (
+          <li key={org.name} className="flex items-center">
+            <Image
+              src={org.logo}
+              alt={org.name}
+              width={org.width}
+              height={org.height}
+              className={`org-logo-muted w-auto object-contain object-left ${
+                org.short === "UNDP"
+                  ? "h-16 max-w-[3.25rem] md:h-[4.5rem] md:max-w-[3.75rem]"
+                  : "h-8 max-w-[12rem] md:h-9 md:max-w-[14rem]"
+              }`}
+            />
           </li>
         ))}
       </ul>
