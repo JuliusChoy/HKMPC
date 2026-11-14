@@ -97,10 +97,25 @@ button:focus-visible {
   animation: soft-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
 
+.quote-fade {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.quote-fade-active {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion-notice,
   .motion-rule,
   .motion-rise {
     animation: none;
+  }
+
+  .quote-fade,
+  .quote-fade-active {
+    opacity: 1;
+    transition: none;
   }
 }

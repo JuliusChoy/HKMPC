@@ -187,6 +187,55 @@ export const judges: readonly PersonProfile[] = [
   calumHandforth,
 ];
 
+/** Organisations that provided judges — text names only (no logos yet). */
+export const judgeOrganisations = [
+  "Hong Kong Monetary Authority",
+  "Manulife Investment Management",
+  "UN Development Programme",
+] as const;
+
+export type JudgeQuoteSlide = {
+  id: string;
+  name: string;
+  role: string;
+  /** Empty means a name/role placeholder only — do not invent copy. */
+  paragraphs: readonly string[];
+};
+
+/** Home first-viewport cycle: Hideki filled (two slides); Ronald & Calum empty. */
+export const judgeQuoteSlides: readonly JudgeQuoteSlide[] = [
+  {
+    id: "hideki-1",
+    name: "Hideki Suzuki",
+    role: "Senior Director of Sustainable Investment, Manulife Investment Management",
+    paragraphs: [
+      "The competition provides valuable real-world experience in developing and pitching innovative solutions to public policy challenges.",
+      "This type of exercise lets students prioritize and think in terms of realistic budgetary constraints to compete for scarce funding.",
+    ],
+  },
+  {
+    id: "hideki-2",
+    name: "Hideki Suzuki",
+    role: "Senior Director of Sustainable Investment, Manulife Investment Management",
+    paragraphs: [
+      "The collaborative nature of the exercise also strengthens teamwork, relationship management, and stakeholder engagement skills, both within teams and with decision-makers.",
+      "It is a valuable addition to the curriculum, preparing students for careers in government, policy consulting, think tanks, and international organizations.",
+    ],
+  },
+  {
+    id: "ronald",
+    name: "Ronald Young",
+    role: "Head of Sustainable Banking Development, Hong Kong Monetary Authority",
+    paragraphs: [],
+  },
+  {
+    id: "calum",
+    name: "Calum Handforth",
+    role: "AI Governance Expert, UN Development Programme",
+    paragraphs: [],
+  },
+];
+
 export const workshops: readonly PersonProfile[] = [
   {
     name: "Priscilla Gatonye",
