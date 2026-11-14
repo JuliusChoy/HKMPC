@@ -187,6 +187,64 @@ export const judges: readonly PersonProfile[] = [
   calumHandforth,
 ];
 
+/** Organisations that provided judges — muted grey wordmarks/marks on Home. */
+export const judgeOrganisations = [
+  {
+    name: "Hong Kong Monetary Authority",
+    short: "HKMA",
+    logo: "/orgs/hkma.png",
+    width: 660,
+    height: 94,
+  },
+  {
+    name: "Manulife Investment Management",
+    short: "Manulife",
+    logo: "/orgs/manulife-investment-management.png",
+    width: 1005,
+    height: 68,
+  },
+  {
+    name: "UN Development Programme",
+    short: "UNDP",
+    logo: "/orgs/undp.png",
+    width: 238,
+    height: 483,
+  },
+] as const;
+
+export type JudgeQuoteSlide = {
+  id: string;
+  name: string;
+  role: string;
+  /** Empty means a name/role placeholder only — do not invent copy. */
+  paragraphs: readonly string[];
+};
+
+/** Home first-viewport cycle: one Hideki slide (first + last paragraphs); Ronald & Calum empty. */
+export const judgeQuoteSlides: readonly JudgeQuoteSlide[] = [
+  {
+    id: "hideki",
+    name: "Hideki Suzuki",
+    role: "Senior Director of Sustainable Investment, Manulife Investment Management",
+    paragraphs: [
+      "The competition provides valuable real-world experience in developing and pitching innovative solutions to public policy challenges.",
+      "It is a valuable addition to the curriculum, preparing students for careers in government, policy consulting, think tanks, and international organizations.",
+    ],
+  },
+  {
+    id: "ronald",
+    name: "Ronald Young",
+    role: "Head of Sustainable Banking Development, Hong Kong Monetary Authority",
+    paragraphs: [],
+  },
+  {
+    id: "calum",
+    name: "Calum Handforth",
+    role: "AI Governance Expert, UN Development Programme",
+    paragraphs: [],
+  },
+];
+
 export const workshops: readonly PersonProfile[] = [
   {
     name: "Priscilla Gatonye",

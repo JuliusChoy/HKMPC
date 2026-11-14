@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { JudgeVoices } from "@/components/judge-voices";
 import { SignupButton } from "@/components/signup-button";
 import { event, topics } from "@/lib/site";
 
@@ -46,6 +47,8 @@ export default function HomePage() {
             Read the competition rules
           </Link>
         </div>
+
+        <JudgeVoices />
 
         <section className="mt-14 border-t border-line pt-10" aria-labelledby="topics-preview">
           <h2 id="topics-preview" className="font-serif text-2xl text-green md:text-3xl">
