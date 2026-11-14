@@ -90,6 +90,7 @@ export function JudgeVoices() {
               alt={org.name}
               width={org.width}
               height={org.height}
+              unoptimized
               className={`org-logo-muted w-auto object-contain object-left ${
                 org.short === "UNDP"
                   ? "h-16 max-w-[3.25rem] md:h-[4.5rem] md:max-w-[3.75rem]"
