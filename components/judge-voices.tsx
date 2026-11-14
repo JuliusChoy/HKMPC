@@ -103,7 +103,7 @@ export function JudgeVoices() {
 
       <div className="mt-8 border-t border-line pt-8">
         <p className="text-sm font-semibold tracking-wide text-copper">
-          From the panel
+          Testimonials
         </p>
 
         {reducedMotion ? (
