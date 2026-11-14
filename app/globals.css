@@ -97,13 +97,9 @@ button:focus-visible {
   animation: soft-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
 
-.quote-fade {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.quote-fade-active {
-  opacity: 1;
+.quote-swipe-track {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .org-logo-muted {
@@ -118,9 +114,7 @@ button:focus-visible {
     animation: none;
   }
 
-  .quote-fade,
-  .quote-fade-active {
-    opacity: 1;
+  .quote-swipe-track {
     transition: none;
   }
 }

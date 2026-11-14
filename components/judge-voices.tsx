@@ -46,12 +46,11 @@ export function JudgeVoices() {
   const labelId = useId();
   const cycleRegionRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
-  const [userPaused, setUserPaused] = useState(false);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [focusPaused, setFocusPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  const paused = userPaused || hoverPaused || focusPaused;
+  const paused = hoverPaused || focusPaused;
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -120,39 +119,28 @@ export function JudgeVoices() {
         ) : (
           <div
             ref={cycleRegionRef}
-            className="mt-4"
+            className="mt-6"
             onMouseEnter={() => setHoverPaused(true)}
             onMouseLeave={() => setHoverPaused(false)}
             onFocusCapture={() => setFocusPaused(true)}
             onBlurCapture={(event) => syncFocusPaused(event.relatedTarget)}
           >
-            <div className="flex flex-wrap items-center justify-end gap-3">
-              <button
-                type="button"
-                className="min-h-10 border border-line px-3 text-sm font-semibold text-green transition-colors hover:border-green hover:bg-paper-deep"
-                aria-pressed={userPaused}
-                onClick={() => setUserPaused((current) => !current)}
+            <div className="overflow-hidden" aria-live="polite" aria-atomic="true">
+              <div
+                className="quote-swipe-track flex items-stretch"
+                style={{ transform: `translateX(-${index * 100}%)` }}
               >
-                {userPaused ? "Resume quotes" : "Pause quotes"}
-              </button>
-            </div>
-
-            <div className="mt-4 grid" aria-live="polite" aria-atomic="true">
-              {judgeQuoteSlides.map((slide, i) => {
-                const isActive = i === index;
-                return (
+                {judgeQuoteSlides.map((slide, i) => (
                   <blockquote
                     key={slide.id}
-                    className={`col-start-1 row-start-1 quote-fade ${
-                      isActive ? "quote-fade-active" : "pointer-events-none"
-                    }`}
-                    aria-hidden={!isActive}
+                    className="w-full min-w-full shrink-0"
+                    aria-hidden={i !== index}
                   >
                     <QuoteBody slide={slide} />
                     <QuoteAttribution slide={slide} />
                   </blockquote>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             <div
